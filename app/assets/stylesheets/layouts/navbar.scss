@@ -1,0 +1,19 @@
+.navbar {
+
+  &__brand {
+      
+    }
+    &__mainLogo {
+      background-repeat: no-repeat;
+      //background-image: image-url("logo.png");
+    }
+    &-nav {
+      & > li {
+        margin-left: 20px;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+   }
