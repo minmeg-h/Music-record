@@ -17,6 +17,9 @@ AllCops:
     - 'script/**/*'
     - !ruby/regexp /old_and_unused\.rb$/
 
+Rails:
+  Enabled: true
+
 # 日本語でのコメントを許可
 AsciiComments:
   Enabled: false
@@ -32,3 +35,7 @@ ClassAndModuleChildren:
 # 文字リテラルのイミュータブル宣言を無視（freezeになるのはRuby3以降）
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+#Windowsの改行コードを変更
+Style/EndOfLine:
+  EnforcedStyle: lf
