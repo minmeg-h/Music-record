@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe 'トップページ',type: :feature do
+RSpec.describe 'トップページ', type: :feature do
   describe 'トップページ' do
     it '挨拶文を表示' do
       visit root_path
