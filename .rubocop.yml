@@ -15,6 +15,9 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
+    - vendor/**/*
+    - tmp/**/*
+    - spec/rails_helper.rb
     - !ruby/regexp /old_and_unused\.rb$/
 
 Rails:

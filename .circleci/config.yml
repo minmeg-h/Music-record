@@ -1,49 +1,57 @@
-version: 2.1
-
-orbs:
-  ruby: circleci/ruby@1.1.0
+# CircleCIのバージョンのことで、「2」、「2.0」、「2.1」のうちのどれかを指定します。
+version: 2
 
 jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.6-node-browsers
         environment:
-          BUNDLER_VERSION: 1.17.2
-    steps:
-      - checkout
-      - ruby/install-deps
-
-  test:
-    parallelism: 3
-    docker:
-      - image: circleci/ruby:2.6.6-node-browsers
-        environment:
-          DB_HOST: 127.0.0.1
-          RAILS_ENV: test
-          BUNDLER_VERSION: 1.17.2
+          - RAILS_ENV: 'test'
+          - MYSQL_HOST: 127.0.0.1
+          - MYSQL_USERNAME: 'root'
+          - MYSQL_PASSWORD: ''
+          - MYSQL_PORT: 3306
       - image: circleci/mysql:5.7
-        command: --default-authentication-plugin=mysql_native_password
         environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-          MYSQL_ROOT_HOST: '%'
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          - MYSQL_ROOT_HOST: '%'
+    working_directory: ~/repo
     steps:
       - checkout
-      - ruby/install-deps
-      - run: mv config/database.yml.ci config/database.yml
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
       - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+          - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run: mv config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create
+      - run: bundle exec rake db:migrate
       - run: bundle exec rake db:schema:load
-      # Run rspec in parallel
-      - ruby/rspec-test
-      - ruby/rubocop-check
+      - run:
+          name: RuboCop
+          command: bundle exec rubocop
+      - run:
+          name: RSpec
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
 
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
