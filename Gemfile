@@ -72,3 +72,5 @@ gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'jquery-rails'
 
 gem 'font-awesome-sass', '~> 5.15.1'
+
+gem 'devise'
