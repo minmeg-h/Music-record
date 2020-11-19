@@ -9,6 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <div id="wrapper">
   <%= render 'partial/navbar' if current_user %>
 
   <% if flash[:notice] %>
@@ -24,5 +25,6 @@
 
   <body>
     <%= yield %>
+    <%= render 'partial/footer' %>
   </body>
 </html>
