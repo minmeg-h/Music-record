@@ -14,7 +14,12 @@
 						<div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
 							<h1>素敵なあの人は今、何を聴いているんだろう？</h1>
               <h2>音楽でゆるく繋がるSNS</h2>
+              <% if user_signed_in? %>
+                <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+              <% end %>
+
 						</div>
+
 						<div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
 							<div class="form-wrap">
 								<div class="tab">
