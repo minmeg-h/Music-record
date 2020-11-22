@@ -3,7 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .top-img {
   background-image: url("top_image.jpeg");
-  height: 650px;
-  width: 100%;
-  object-fit: scale-down;
+  background-repeat:  no-repeat;
+  background-size: 1600px;
+  max-width: auto;
+   height: 600px;
+
+  object-fit: cover;
 }
