@@ -4,11 +4,7 @@
 .top-img {
   background-image: image-url("top_image.jpeg");
   background-repeat:  no-repeat;
-  background-size: 1600px;
-  max-width: auto;
-   height: 600px;
-
-  object-fit: cover;
+  background-size: cover;
 }
 
 .logo-img {
