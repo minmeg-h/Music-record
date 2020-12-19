@@ -5,10 +5,16 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  #ログイン後に移動するページを指定
   def after_sign_in_path_for(resource)
     homes_index_path
     #user_path(resource)
-end
+  end
+
+  #ログアウト後に移動するページを指定
+  def after_sign_out_path_for(resource)
+    new_user_session_path
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
