@@ -5,14 +5,14 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  #ログイン後に移動するページを指定
-  def after_sign_in_path_for(resource)
+  # ログイン後に移動するページを指定
+  def after_sign_in_path_for(_resource)
     homes_index_path
-    #user_path(resource)
+    # user_path(resource)
   end
 
-  #ログアウト後に移動するページを指定
-  def after_sign_out_path_for(resource)
+  # ログアウト後に移動するページを指定
+  def after_sign_out_path_for(_resource)
     new_user_session_path
   end
 
