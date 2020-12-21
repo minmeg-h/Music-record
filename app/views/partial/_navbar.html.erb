@@ -19,10 +19,10 @@
     <a class="nav-link disabled" href="#">Disabled</a>
   </li>
   <li class="nav-item">
-    <%= link_to "プロフィール", user_path(current_user), class: "nav-link commonNavIcon profile-icon" %>
+    <%= link_to image_tag(profile_photo(current_user), class: "round-img-nav", size:30 ), user_path(current_user), class: "nav-link commonNavIcon profile-icon" %>
   </li>
-</ul>
 
+<li class="nav-item">
 <form class="form-inline">
   <div class="input-group">
    <div class="input-group-prepend">
@@ -31,6 +31,8 @@
    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
   </div>
   </form>
+  </li>
+  </ul>
       </div>
     </div>
 </nav>
