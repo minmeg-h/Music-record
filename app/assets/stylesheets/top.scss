@@ -4,10 +4,9 @@
 .top-img {
   background-image: image-url("top_image.jpeg");
   background-repeat:  no-repeat;
-  background-size: 1600px;
-  max-width: auto;
-  height: 800px;
-
+  background-size: 1800px;
+  width: 100vw;
+  height: 600px;
   object-fit: cover;
   }
 
