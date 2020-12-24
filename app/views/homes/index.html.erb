@@ -1,6 +1,7 @@
 <p>このページは仮のトップページです!</p>
 <% if user_signed_in? %>
   <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+  <%= link_to "プロフィール", user_path(current_user), class: "nav-link commonNavIcon profile-icon" %>
 <% end %>
 <%= link_to "仮のボタンです", "#", class: "btn btn-primary" %>
 <p><i class="fab fa-twitter"></i>ここにアイコンを表示</p>
