@@ -1,15 +1,12 @@
 class TopController < ApplicationController
-  before_action :redirect_profile
+  before_action :redirect_index
   def top; end
 
 
 private
-  def redirect_profile
+  def redirect_index
     if user_signed_in?
-      flash[:notice] = 'ログインしています'
       redirect_to homes_index_path
     end
-
   end
-
 end
