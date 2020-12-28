@@ -8,20 +8,15 @@
       <div class="row">
         <h2><%= @user.name %></h2>
           <p><%= simple_format(@user.profile) %></p>
-          <% if @user == current_user %>
-        <%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
-        <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"></button>
-      </div>
+              <% if @user == current_user %>
+                <%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
+                <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"></button>
 
-        <div class="row">
-          <p>
-            <%= @user.email %>
-          </p>
-          <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+                <p><%= @user.email %></p>
+                <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+                <% end %>
         </div>
-      <% end %>
-
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
   </div>
