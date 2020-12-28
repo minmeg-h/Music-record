@@ -18,34 +18,29 @@
             <%= f.email_field :email, autofocus: true, class:"form-control" %>
           </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-        <div class="form-group">
+          <div class="form-group">
             <%= f.label :profile %><br />
             <%= f.text_area :profile, autofocus: true, class:"form-control" %>
-        </div>
-      <p>パスワードを変更する場合は、新しいパスワードと、確認のため同じパスワードを入力してください</p>
+          </div>
+      <p>
+        パスワードを変更する場合は、新しいパスワードと、確認のため同じパスワードを入力してください
+      </p>
 
-        <div class="form-group">
+          <div class="form-group">
             <%= f.label :password, "パスワード(6文字)" %>
             <%= f.password_field :password, autofocus: "off", class:"form-control" %>
-        </div>
+          </div>
 
-        <div class="form-group">
+          <div class="form-group">
             <%= f.label :password_confirmation, "パスワードの確認" %>
             <%= f.password_field :password_confirmation, autofocus: "off", class: "form-control" %>
-        </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
+          </div>
+          <br>
         <div class="actions">
             <%= f.submit "変更する", class:"btn btn-info w-100" %>
         </div>
+          <br>
+            <%= link_to "戻る", :back ,class:"btn btn-danger w-100" %>
         <% end %>
       </div>
     </div>
