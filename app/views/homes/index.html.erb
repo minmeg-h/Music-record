@@ -1,7 +1,17 @@
-<p>このページは仮のトップページです!</p>
-<% if user_signed_in? %>
-  <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
-  <%= link_to "プロフィール", user_path(current_user), class: "nav-link commonNavIcon profile-icon" %>
-<% end %>
-<%= link_to "仮のボタンです", "#", class: "btn btn-primary" %>
-<p><i class="fab fa-twitter"></i>ここにアイコンを表示</p>
+<div class="container">
+ <div class="row">
+   <div class="text-center">
+    <h2>このページは仮のトップページです!</h2>
+      <% if user_signed_in? %>
+        <div class="button-wrap">
+          <%= link_to "プロフィール",user_path(current_user), class: "btn btn-primary" %>
+        </div>
+
+        <div class="button-wrap">
+          <%= link_to "サインアウト",  destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+        </div>
+        <p><i class="fab fa-twitter"></i>ここにアイコンを表示</p>
+          <% end %>
+    </div>
+  </div>
+</div>
