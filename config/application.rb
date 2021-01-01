@@ -11,6 +11,9 @@ module MusicRecord
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
+    # デフォルトの言語を日本語にする
+    config.i18n.default_locale = :ja
+
     config.generators do |g|
      g.test_framework :rspec,
         view_specs: false,
