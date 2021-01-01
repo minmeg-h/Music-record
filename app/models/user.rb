@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 20 }
   validates :profile, length: { maximum: 200 }
+  validate :password_complexity
 
   def update_without_current_password(params, *options)
     params.delete(:current_password)
@@ -18,5 +19,10 @@ class User < ApplicationRecord
     result = update(params, *options)
     clean_up_passwords
     result
+  end
+
+  def password_complexity
+    return if password.blank? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,70}$/
+    errors.add :password, "パスワードの強度が不足しています。パスワードの長さは8〜70文字とし、大文字と小文字と数をそれぞれ1文字以上含める必要があります。"
   end
 end
