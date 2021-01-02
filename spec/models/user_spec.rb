@@ -73,13 +73,17 @@ RSpec.describe User, type: :model do
      expect(user.errors[:password]).to include('パスワードの強度が不足しています。パスワードの長さは8文字以上とし、大文字と小文字と数をそれぞれ1文字以上含める必要があります。')
    end
 
+
+  pending describe 'ログイン' do
+    it "パスワードが間違えているとエラーがでること" do
+       expect(user.errors[:password]).to include('メールアドレスまたはパスワードが違います。')
+    end
   end
 
-  describe 'ログイン' do
-
-  end
 
   describe 'プロフィールの編集' do
 
   end
+
+end
 end
