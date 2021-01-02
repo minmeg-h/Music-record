@@ -42,3 +42,8 @@ Style/FrozenStringLiteralComment:
 #Windowsの改行コードを変更
 Style/EndOfLine:
   EnforcedStyle: lf
+
+# テスト内でのブロックが多いことを無視する
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
