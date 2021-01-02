@@ -6,6 +6,7 @@ ja:
           attributes:
             name:
               blank: "が空になっています"
+              too_long: "は%{count}文字以下に設定して下さい。"
             email:
               taken: "は有効でありません。"
               blank: "が入力されていません。"
