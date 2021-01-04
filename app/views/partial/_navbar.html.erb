@@ -1,16 +1,16 @@
 <!-- Navbarの設置 -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <%= link_to "", root_path, class: "navbar__brand navbar__mainLogo" %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
+    <a class="navbar-brand" href="/">Music-record</a>
+     <%= link_to "", root_path, class: "navbar__brand navbar__mainLogo" %>
 
-<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-<a class="navbar-brand" href="/">Music-record</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" >
+  <span class="navbar-toggler-icon"></span>
+    </button>
 
-<!--"navbar-nav mr-auto mt-2 mt-lg-0"にするとメニューが左側になる-->
-<ul class="navbar-nav ml-md-auto align-items-center">
+  <div class="collapse navbar-collapse" id="navbar">
+  <!--"navbar-nav mr-auto mt-2 mt-lg-0"にするとメニューが左側になる-->
+    <ul class="navbar-nav ml-md-auto align-items-center">
 
   <li class="nav-item">
      <%= link_to "投稿", "#" %>
@@ -35,4 +35,5 @@
   </ul>
       </div>
     </div>
+    <%= javascript_include_tag "navbar.js" %>
 </nav>
