@@ -8,6 +8,9 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 200 }
   validate :password_complexity
 
+  # 画像のアップローダーを紐付け
+  mount_uploader :image, ImageUploader
+
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
