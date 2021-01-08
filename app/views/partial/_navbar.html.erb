@@ -9,7 +9,6 @@
     </button>
 
   <div class="collapse navbar-collapse" id="navbar">
-  <!--"navbar-nav mr-auto mt-2 mt-lg-0"にするとメニューが左側になる-->
     <ul class="navbar-nav ml-md-auto align-items-center">
 
   <li class="nav-item">
@@ -19,7 +18,14 @@
     <a class="nav-link disabled" href="#">Disabled</a>
   </li>
   <li class="nav-item">
-    <%= link_to image_tag(profile_photo(current_user), class: "round-img-nav", size:30 ), user_path(current_user), class: "nav-link commonNavIcon profile-icon" %>
+      <%= link_to user_path(current_user) do %>
+        <% if current_user.profile_photo? %>
+          <img src='<%= current_user.profile_photo %>' class= "round-img-nav" size:30 >
+        <% else %>
+          <img src="/assets/default_icon.jpg" class="round-img-nav" size:30 >
+        <% end %>
+      <% end %>
+
   </li>
 
 <li class="nav-item">

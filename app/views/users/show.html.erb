@@ -2,7 +2,11 @@
  <div class="container">
   <div class="row">
     <div class="col-md-4 text-center">
-       <%= image_tag profile_photo(@user), class: "round-img" %>
+      <% if @user.profile_photo? %>
+        <img src='<%= @user.profile_photo %>' class="round-img" size:200 alt="ユーザーアイコン">
+      <% else %>
+        <img src="/assets/default_icon.jpg" class="round-img" size:200 alt="ユーザーアイコン" >
+      <% end %>
     </div>
     <div class="col-md-8">
       <div class="row">
