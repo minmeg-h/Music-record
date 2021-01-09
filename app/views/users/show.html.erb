@@ -5,7 +5,7 @@
       <% if @user.profile_photo? %>
         <img src='<%= @user.profile_photo %>' class="round-img" size:200 alt="ユーザーアイコン">
       <% else %>
-        <img src="/assets/default_icon.jpg" class="round-img" size:200 alt="ユーザーアイコン" >
+        <img src="<%= asset_path "default_icon.jpg" %>" class="round-img" >
       <% end %>
     </div>
     <div class="col-md-8">

@@ -10,9 +10,9 @@
 
         <div class="profile_photo_field">
           <% if @user.profile_photo? %>
-            <img src='<%= @user.profile_photo %>' class="round-img" size:200 >
+            <img src='<%= @user.profile_photo %>' class="round-img-edit" size:200 >
           <% else %>
-            <img src="/assets/default_icon.jpg" class="round-img" size:200 >
+            <img src="<%= asset_path "default_icon.jpg" %>" class="round-img-edit" >
           <% end %>
            <%= f.file_field :profile_photo %>
         </div>
