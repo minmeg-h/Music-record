@@ -22,8 +22,17 @@
 
         </div>
 
+          <div>
+        <% if @searchartists.present? %>
+        <h2>検索結果</h2>
+          <% @searchartists.each do |searchartist| %>
+        <h3><%= searchartist.name %></h3>
+        <% end %>
+      </div>
 
-          <h2>検索結果</h2>
+          <% end %>
+
+
 
 
 
