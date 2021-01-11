@@ -78,5 +78,5 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
-gem 'rspotify'
 gem 'dotenv-rails'
+gem 'rspotify'
