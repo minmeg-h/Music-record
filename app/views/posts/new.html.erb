@@ -1,0 +1,9 @@
+<div class="container">
+  <%= form_with model: @post do |f| %>
+  <div class="form-group">
+    <%= f.label :text %>
+    <%= f.text_area :text, class:"form-control", maxlength: "200", rows:"5"  %>
+  </div>
+    <%= f.submit "投稿", class: "btn btn-primary" %>
+  <% end %>
+</div>
