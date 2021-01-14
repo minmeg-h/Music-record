@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @post = Post.new
-    #@post.music.build
   end
 
   def create
@@ -17,7 +18,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:text, :image)
+      params.require(:post).permit(:text, :image).merge(user_id: current_user.id)
     end
 
 end
