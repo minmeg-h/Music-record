@@ -9,16 +9,16 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       redirect_to root_path
-      flash[:notice] = "投稿が保存されました"
+      flash[:notice] = '投稿が保存されました'
     else
-      redirect_to root_path
-      flash[:alert] = "投稿に失敗しました"
+      redirect_to new_post_path
+      flash[:alert] = '投稿に失敗しました'
     end
   end
 
   private
-    def post_params
-      params.require(:post).permit(:text, :image).merge(user_id: current_user.id)
-    end
 
+  def post_params
+    params.require(:post).permit(:text, :image).merge(user_id: current_user.id)
+  end
 end
