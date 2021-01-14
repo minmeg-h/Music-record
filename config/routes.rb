@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get 'homes/search'
   #プロフィールページのルーティング
   get '/users/:id', to: 'users#show', as: 'user'
+
+  resources :posts, only: %i(new create) 
 end
