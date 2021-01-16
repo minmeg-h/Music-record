@@ -1,0 +1,33 @@
+<div class="container">
+    <% @posts.each do |post| %>
+    <div class="col-md-8 col-md-2 mx-auto">
+    <div class="card-wrap , border border-white">
+        <div class="card-header align-items-center d-flex">
+          <%= link_to user_path(post.user), class: "no-text-decoration" do %>
+          <% end %>
+          <% if current_user.profile_photo? %>
+            <img src='<%= current_user.profile_photo %>' class="round-img-nav" size:30 alt="ユーザーアイコン">
+          <% else %>
+            <img src="<%= asset_path "default_icon.jpg" %>" class="round-img-nav" >
+          <% end %>
+          <%= link_to user_path(post.user), class: "black-color no-text-decoration",
+           title: post.user.name do %>
+           <strong><%= post.user.name %></strong>
+          <% end %>
+        </div>
+
+    <p><%= post.text %></p>
+   <!-- image_tag post.image -->
+   <div class="card-body">
+          <div class="row parts">
+            <%= link_to "", "#", class: "fa fa-heart like-btn-unlike" %>
+            <%= link_to "", "#", class: "comment" %>
+          </div>
+          <div><strong>「いいね！」10件</strong></div>
+          <div>
+  <% end %>
+    </div>
+    </div>
+   </div>
+  </div>
+</div>
