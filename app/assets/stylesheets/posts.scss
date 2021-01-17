@@ -1,3 +1,45 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.card-wrap {
+  margin: 40px 0px;
+  border-color: #FAFAFA;
+}
+
+.no-text-decoration {
+  text-decoration: none;
+  color: #FAFAFA;
+  margin: 0 4px
+}
+
+.black-color {
+  color: #262626;
+}
+
+.text-body {
+  margin: 5% 1em 0 1em;
+}
+
+.post-text {
+  color: #FAFAFA;
+}
+
+.parts {
+  margin: 12px 0;
+}
+
+.comment {
+  margin-left: 8px;
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 40px !important;
+}
+
+.post-time {
+  margin:0;
+  color:#999;
+  font-size:10px;
+}
+
+.post-sub-text {
+  text-decoration: none;
+  color: #262626;
+}
