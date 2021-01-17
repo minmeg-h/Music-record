@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   # ログイン後に移動するページを指定
   def after_sign_in_path_for(_resource)
-    homes_index_path
+    posts_path
     # user_path(resource)
   end
 

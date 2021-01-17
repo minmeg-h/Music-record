@@ -5,6 +5,6 @@ class TopController < ApplicationController
   private
 
   def redirect_index
-    redirect_to homes_index_path if user_signed_in?
+    redirect_to posts_path if user_signed_in?
   end
 end
