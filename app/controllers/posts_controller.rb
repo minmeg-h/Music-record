@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def index
-     @posts = Post.all.includes(:user).order('created_at DESC')
+    @posts = Post.all.includes(:user).order('created_at DESC')
   end
 
   private

@@ -92,7 +92,7 @@ ja:
     unlocks:
       new:
         resend_unlock_instructions: "アカウントの凍結解除方法を再送する"
-ja:
+
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
