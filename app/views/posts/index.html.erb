@@ -5,9 +5,9 @@
         <div class="card-header align-items-center d-flex bg-dark ">
           <%= link_to user_path(post.user), class: "no-text-decoration" do %>
           <% if current_user.profile_photo? %>
-<img src='<%= current_user.profile_photo %>' class="round-img-nav" size:30 alt="ユーザーアイコン">
-<% else %>
-<img src="<%= asset_path "default_icon.jpg" %>" class="round-img-nav" >
+            <img src='<%= current_user.profile_photo %>' class="round-img-nav" size:30 alt="ユーザーアイコン">
+          <% else %>
+            <img src="<%= asset_path "default_icon.jpg" %>" class="round-img-nav" >
           <% end %>
           <% end %>
           <%= link_to user_path(post.user), class: "no-text-decoration",
