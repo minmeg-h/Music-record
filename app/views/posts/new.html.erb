@@ -1,9 +1,30 @@
-<div class="container">
-  <%= form_with model: @post do |f| %>
-  <div class="form-group">
-    <%= f.label :text %>
-    <%= f.text_area :text, class:"form-control", maxlength: "200", rows:"5"  %>
+<div class="d-flex flex-column align-items-center mt-3">
+  <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card ">
+    <div class="card bg-secondary">
+      <div class="card-header bg-dark">
+        Record  音楽を記録しよう
+      </div>
+        <div class="card-body">
+          <div class="container">
+            <div class="mt-2">
+              <div class="col-auto pr-0">
+            <% if current_user.profile_photo? %>
+              <img src='<%= current_user.profile_photo %>' class="round-img-nav" size:30 alt="ユーザーアイコン">
+            <% else %>
+              <img src="<%= asset_path "default_icon.jpg" %>" class="round-img-nav" >
+            <% end %>
+            </div>
+          <%= form_with model: @post do |f| %>
+            <div class="form-group">
+              <div class="col pl-0">
+            <%= f.text_area :text, class:"form-control", maxlength: "200", rows:"5"  %>
+              </div>
+            </div>
+          </div>
+          <%= f.submit "投稿", class: "btn btn-primary" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-    <%= f.submit "投稿", class: "btn btn-primary" %>
-  <% end %>
 </div>
