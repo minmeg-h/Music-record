@@ -16,13 +16,11 @@
             </div>
           <%= form_with model: @post do |f| %>
             <div class="form-group">
-              <div class="col pl-0">
             <%= f.text_area :text, class:"form-control", maxlength: "200", rows:"5"  %>
-              </div>
-            </div>
+            <%= f.submit "投稿", class: "btn btn-primary" %>
+          <% end %>
+           </div>
           </div>
-          <%= f.submit "投稿", class: "btn btn-primary" %>
-        <% end %>
         </div>
       </div>
     </div>
