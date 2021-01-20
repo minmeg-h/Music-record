@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  
   protected
 
   # パスワードなしでユーザー情報の変更ができる
