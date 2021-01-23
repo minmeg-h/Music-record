@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   #プロフィールページのルーティング
   get '/users/:id', to: 'users#show', as: 'user'
 
-  resources :posts, only: %i(new create index)
+  resources :posts, only: %i(new create index show)
 end

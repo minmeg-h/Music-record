@@ -1,0 +1,46 @@
+<div class="col-md-8 col-md-2 mx-auto">
+  <div class="card-wrap">
+    <div class="card bg-dark">
+      <div class="card-header align-items-center d-flex bg-dark ">
+        <%= link_to user_path(@post.user), class: "no-text-decoration" do %>
+        <% if @post.user.profile_photo? %>
+          <img src='<%= @post.user.profile_photo %>' class="round-img-nav" size:30 alt="ユーザーアイコン">
+        <% else %>
+          <img src="<%= asset_path "default_icon.jpg" %>" class="round-img-nav" >
+        <% end %>
+        <% end %>
+        <%= link_to user_path(@post.user), class: "no-text-decoration",
+          title: @post.user.name do %>
+          <strong><%= @post.user.name %></strong>
+        <% end %>
+      </div>
+      <div class="text-body">
+        <div class="post-text">
+      <p><%= @post.text %></p>
+        </div>
+      </div>
+
+      <!-- image_tag post.photos.first.image.url(:medium), class: "card-img-top" % -->
+
+      <div class="card-body bg-dark">
+        <div class="row parts">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+          <!-- %= link_to "", "#", class: "comment" % -->
+        </div>
+        <div><strong>「いいね！」10件</strong></div>
+        <div>
+          <span><strong><%= @post.user.name %></strong></span>
+          <%= link_to time_ago_in_words(@post.created_at).upcase + "前", "#", class: "post-time no-text-decoration" %>
+          <hr>
+          <div class="row parts">
+            <form action="#" class="w-100">
+              <div>
+                <textarea class="form-control comment-input border-0" placeholder="コメント..." rows="1"></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
