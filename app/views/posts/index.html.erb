@@ -2,7 +2,7 @@
   <div class="col-md-8 col-md-2 mx-auto">
     <div class="card-wrap">
       <div class="card bg-secondary">
-        <div class="card-header align-items-center d-flex bg-dark ">
+        <div class="card-header align-items-center d-flex bg-dark">
           <%= link_to user_path(post.user), class: "no-text-decoration" do %>
           <% if current_user.profile_photo? %>
             <img src='<%= current_user.profile_photo %>' class="round-img-nav" size:30 alt="ユーザーアイコン">
@@ -15,9 +15,15 @@
             <strong><%= post.user.name %></strong>
           <% end %>
         </div>
-        <div class="text-body">
-          <div class="post-text">
-        <p><%= post.text %></p>
+        <div class="text-body no-text-decoration">
+          <div class="post-text no-text-decoration">
+            <div class="no-text-decoration">
+              <%= link_to post_path(post), class: "no-text-decoration"  do %>
+              <p><%= post.text %></p>
+              <% end %>
+
+
+            </div>
           </div>
         </div>
 
