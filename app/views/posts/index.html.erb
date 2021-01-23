@@ -15,15 +15,11 @@
             <strong><%= post.user.name %></strong>
           <% end %>
         </div>
-        <div class="text-body no-text-decoration">
-          <div class="post-text no-text-decoration">
-            <div class="no-text-decoration">
-              <%= link_to post_path(post), class: "no-text-decoration"  do %>
+        <div class="text-body">
+          <div class="post-text">
+            <%= link_to post_path(post), class: "no-text-decoration"  do %>
               <p><%= post.text %></p>
               <% end %>
-
-
-            </div>
           </div>
         </div>
 
