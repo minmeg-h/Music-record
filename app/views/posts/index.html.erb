@@ -14,12 +14,18 @@
             title: post.user.name do %>
             <strong><%= post.user.name %></strong>
           <% end %>
+
+        <% if post.user_id == current_user.id %>
+          <%= link_to post_path(post), method: :delete, class:"fas fa-trash ml-auto mx-0 my-auto"  do %>
+        <% end %>
+        <% end %>
         </div>
+
         <div class="text-body">
           <div class="post-text">
             <%= link_to post_path(post), class: "no-text-decoration"  do %>
               <p><%= post.text %></p>
-              <% end %>
+            <% end %>
           </div>
         </div>
 
