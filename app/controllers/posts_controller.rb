@@ -23,6 +23,17 @@ class PostsController < ApplicationController
 
   def show; end
 
+  def edit; end
+
+  def update
+    if @post.user == current_user
+      flash[:notice] = '投稿が編集されました' if @post.update_attributes(post_params)
+    else
+      flash[:notice] = '投稿の編集に失敗しました'
+    end
+    redirect_to posts_path
+  end
+
   def destroy
     if @post.user == current_user
       flash[:notice] = '投稿が削除されました' if @post.destroy
