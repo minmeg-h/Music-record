@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: %i[show  edit update destroy]
+  before_action :set_post, only: %i[show edit update destroy]
 
   def new
     @post = Post.new
@@ -45,12 +45,12 @@ class PostsController < ApplicationController
 
   private
 
- # ストロングパラメーターを設定（投稿には文字文章にログインユーザーのidを付与する）
+  # ストロングパラメーターを設定（投稿には文字文章にログインユーザーのidを付与する）
   def post_params
     params.require(:post).permit(:text).merge(user_id: current_user.id)
   end
 
- # リファクタリングのためにあらかじめ、対象の投稿を探しておくメソッド
+  # リファクタリングのためにあらかじめ、対象の投稿を探しておくメソッド
   def set_post
     @post = Post.find_by(id: params[:id])
   end
