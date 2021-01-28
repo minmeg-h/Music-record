@@ -3,6 +3,8 @@
     <div class="card-wrap">
       <div class="card bg-secondary">
         <div class="card-header align-items-center d-flex bg-dark">
+
+          <!-- ユーザー画像があれば登録しているユーザー画像、なければデフォルト画像を表示 -->
           <%= link_to user_path(post.user), class: "no-text-decoration" do %>
           <% if current_user.profile_photo? %>
             <img src='<%= current_user.profile_photo %>' class="round-img-nav" size:30 alt="ユーザーアイコン">
@@ -10,17 +12,30 @@
             <img src="<%= asset_path "default_icon.jpg" %>" class="round-img-nav" >
           <% end %>
           <% end %>
+          <!-- 投稿したユーザーの名前を表示 -->
           <%= link_to user_path(post.user), class: "no-text-decoration",
             title: post.user.name do %>
             <strong><%= post.user.name %></strong>
           <% end %>
-
-        <% if post.user_id == current_user.id %>
-          <%= link_to post_path(post), method: :delete, class:"fas fa-trash ml-auto mx-0 my-auto"  do %>
-        <% end %>
-        <% end %>
+        <!-- 投稿ユーザーの場合、編集・削除アイコンを表示 -->
+        <div class="ml-auto">
+          <% if post.user_id == current_user.id %>
+          <!-- 投稿を編集するアイコン -->
+            <div class="post-menu">
+              <%= link_to edit_post_path(post) do %>
+                 <i class="fas fa-pencil-alt"></i>
+              <% end %>
+            </div>
+            <!-- 投稿を削除するアイコン -->
+            <div class="post-menu">
+               <%= link_to post_path(post), method: :delete do %>
+                 <i class="fas fa-trash"></i>
+               <% end %>
+             </div>
+          <% end %>
         </div>
-
+        </div>
+          <!--投稿内容を表示-->
         <div class="text-body">
           <div class="post-text">
             <%= link_to post_path(post), class: "no-text-decoration"  do %>
