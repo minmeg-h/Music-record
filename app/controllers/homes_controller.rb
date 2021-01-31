@@ -5,5 +5,8 @@ class HomesController < ApplicationController
 
   def index; end
 
-  def search; end
+  def search
+    if params[:search].present?
+    @searchartists = RSpotify::Artist.search(params[:search])
+   end
 end

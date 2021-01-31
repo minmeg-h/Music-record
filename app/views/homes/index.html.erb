@@ -13,28 +13,26 @@
         <p><i class="fab fa-twitter"></i>ここにアイコンを表示</p>
         <% end %>
 
-        <div class="form-group">
         <h3>アーティスト名で検索</h3>
-          <%= form_with url: homes_index_path, method: :get, local: true do |f| %>
-          <%= f.text_field :search %>
-          <%= f.submit 'アーティスト名検索', name: nil %>
-          <% end %>
+<%= form_with method: :get, local: true do |form| %>
+<%= form.text_field :search %>
+<%= form.submit 'アーティスト名検索', name: nil %>
 
-        </div>
 
-          <div>
-        <% if @searchartists.present? %>
-        <h2>検索結果</h2>
-          <% @searchartists.each do |searchartist| %>
+<% end %>
+
+
+
+<h1>検索結果</h1>
+<div>
+  <% if @searchartists.present? %>
+    <% @searchartists.each do |searchartist| %>
+      <div>
         <h3><%= searchartist.name %></h3>
-        <% end %>
-      </div>
-
           <% end %>
 
-
-
-
+          <% end %>
+      </div>
 
     </div>
   </div>
