@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :musics, dependent: :destroy
+  has_one :music, dependent: :destroy
 end
