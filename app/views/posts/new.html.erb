@@ -17,6 +17,9 @@
           <%= form_with model: @post do |f| %>
             <div class="form-group">
             <%= f.text_area :text, class:"form-control", maxlength: "200", rows:"5"  %>
+            <%= f.fields_for :musics do |f| %>
+    <%= f.file_field :artist %>
+    <% end %>
             <%= f.submit "投稿", class: "btn btn-primary" %>
           <% end %>
            </div>

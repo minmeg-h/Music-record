@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
   resources :posts do
-   resources :musics, only: %i(create) do
-   end
+   resources :musics, only: %i(create)
  end
 end
