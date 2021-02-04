@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_one :musics, dependent: :destroy
-  accepts_nested_attributes_for :musics
+  has_one :music, dependent: :destroy
+
+  # musicモデルを子モデルとして扱う
+  accepts_nested_attributes_for :music
 end

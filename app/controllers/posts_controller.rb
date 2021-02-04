@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-     @post.musics.build
+    @post.build_music
   end
 
   def create
@@ -46,9 +46,9 @@ class PostsController < ApplicationController
 
   private
 
-  # ストロングパラメーターを設定（投稿には文字文章にログインユーザーのidを付与する）
+  # ストロングパラメーターを設定（子モデルの音楽情報と、投稿には文字文章にログインユーザーのidを付与する）
   def post_params
-    params.require(:post).permit(:text, musics_attributes: [:artist]).merge(user_id: current_user.id)
+    params.require(:post).permit(:text, musics_attributes: [:artist, :tracks, :image]).merge(user_id: current_user.id)
   end
 
   # リファクタリングのためにあらかじめ、対象の投稿を探しておくメソッド
