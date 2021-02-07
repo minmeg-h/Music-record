@@ -11,31 +11,10 @@
           <%= link_to "サインアウト",  destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
         </div>
         <p><i class="fab fa-twitter"></i>ここにアイコンを表示</p>
-        <% end %>
-
-        <div class="form-group">
-        <h3>アーティスト名で検索</h3>
-          <%= form_with url: homes_index_path, method: :get, local: true do |f| %>
-          <%= f.text_field :search %>
-          <%= f.submit 'アーティスト名検索', name: nil %>
-          <% end %>
-
-        </div>
-
-          <div>
-        <% if @searchartists.present? %>
-        <h2>検索結果</h2>
-          <% @searchartists.each do |searchartist| %>
-        <h3><%= searchartist.name %></h3>
-        <% end %>
-      </div>
-
-          <% end %>
 
 
-
-
-
+        <%= link_to "検索", musics_search_path %>
+<% end %>
     </div>
   </div>
 </div>
