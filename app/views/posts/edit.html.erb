@@ -16,10 +16,18 @@
               <img src="<%= asset_path "default_icon.jpg" %>" class="round-img-nav" >
             <% end %>
             </div>
-            <!--投稿部分と送信ボタン -->
+            <!--投稿部分 -->
           <%= form_with model: @post do |f| %>
             <div class="form-group">
             <%= f.text_area :text, class:"form-control", maxlength: "200", rows:"5"  %>
+            <!--音楽情報を投稿する部分-->
+            <%= f.fields_for :music do |f| %>
+              <%= f.label :アーティスト %>
+              <%= f.text_field :artist %>
+
+              <%= f.label :曲 %>
+              <%= f.text_field :tracks %>
+            <% end %>
             <%= f.submit "編集する", class: "btn btn-primary" %>
           <% end %>
           </div>
