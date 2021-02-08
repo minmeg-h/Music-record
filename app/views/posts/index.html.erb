@@ -40,8 +40,8 @@
           <div class="post-text">
             <%= link_to post_path(post), class: "no-text-decoration"  do %>
               <p><%= post.text %></p>
-
               <!-- 音楽情報を表示 -->
+              <%= post.music.tracks %>/<%= post.music.artist %>
             <% end %>
           </div>
         </div>
