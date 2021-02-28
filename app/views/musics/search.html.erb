@@ -14,9 +14,11 @@
   <div class="col-md-8 col-md-2 mx-auto">
     <div class="card bg-dark">
       <div>
-        <%= music.name %>/<%= music.artists %>
+        <%= music.name %>/<%= music.artists[0] %>
       <% if music.preview_url.present? %>
-        <%= link_to '再生', music.preview_url %>
+        <div class="spotify_preview_url">
+          <iframe src=<%=  music.preview_url %> width="300" height="140"></iframe>
+        </div>
       <% end %>
         </div>
         </div>
