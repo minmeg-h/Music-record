@@ -6,7 +6,7 @@ libpq-dev \
 nodejs
 
 RUN mkdir /Music-record
-ENV APP_ROOT //Music-record
+ENV APP_ROOT /Music-record
 WORKDIR $APP_ROOT
 
 ADD ./Gemfile $APP_ROOT/Gemfile
